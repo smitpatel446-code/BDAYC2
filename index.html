@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF8F5" />
+  <meta name="description" content="Happy Birthday C2! An interactive, motion-animated Pinterest memory scrapbook inspired by One Direction's Story of My Life, featuring continuous music, photo eras, and funny expression attacks." />
+  <title>Happy Birthday C2 ♡ Story of My Life</title>
+
+  <!-- Google Fonts: Display, Modern Sans, Handwritten & Notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient Fairy Lights & Floating Orbs -->
+  <div class="ambient-decor" aria-hidden="true">
+    <div class="fairy-lights-string"></div>
+    <div class="bokeh-orb bokeh-1"></div>
+    <div class="bokeh-orb bokeh-2"></div>
+    <div class="bokeh-orb bokeh-3"></div>
+  </div>
+
+  <!-- Continuous Background Audio Element -->
+  <audio id="bgAudio" loop preload="auto" src="vidssave.com%20One%20Direction%20-%20Story%20of%20My%20Life%20128KBPS.mp4"></audio>
+
+  <!-- ========================================================================
+       ENTRANCE GATE / CURTAIN MODAL (Browser Autoplay Unlocker)
+       ======================================================================== -->
+  <aside id="gate" role="dialog" aria-modal="true" aria-label="Welcome Curtain">
+    <div class="gate-envelope">
+      <div class="gate-seal">🎂</div>
+      <p class="gate-subhead">A very special celebration for you…</p>
+      <h1 class="gate-title">HAPPY Birthday <span>C2</span> 🎂</h1>
+      <p class="gate-desc">
+        Welcome to your personal Pinterest board of memories, chaos, royalty, and iconic eras. 
+        Hung out to dry on golden strings—just like One Direction's <em>Story of My Life</em>.
+      </p>
+      <div class="gate-music-pill">
+        <span>♪</span> Continuous Soundtrack: One Direction - Story of My Life
+      </div>
+      <div>
+        <button id="btnOpenStory" class="btn-open-story" type="button">
+          <span>✨ Tap to Open & Play Music</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       STICKY TOP NAVIGATION BAR
+       ======================================================================== -->
+  <header class="top-navbar">
+    <a href="#" class="brand-badge" aria-label="Story of My Life Homepage">
+      <div class="brand-icon">🎂</div>
+      <div class="brand-text">
+        <h2>Happy Birthday C2 🎂</h2>
+        <p>Story of My Life Archives</p>
+      </div>
+    </a>
+
+    <!-- Quick Jump Chapter Pills -->
+    <nav class="nav-chapter-pills" aria-label="Chapter Navigation">
+      <button class="chapter-nav-btn active" data-era="all" type="button">🌸 All Boards</button>
+      <button class="chapter-nav-btn" data-era="old" type="button">🧸 1. Old Days</button>
+      <button class="chapter-nav-btn" data-era="mid" type="button">🌅 2. Mid Era</button>
+      <button class="chapter-nav-btn" data-era="mid2" type="button">💅 3. Peak Sass</button>
+      <button class="chapter-nav-btn" data-era="2027" type="button">👑 4. 2027 Beyond</button>
+      <button class="chapter-nav-btn" data-era="motion" type="button">🎬 Live Motion</button>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="btnAudioToggle" class="btn-sound-pill" type="button" title="Toggle Background Music">
+        <span class="sound-dot"></span>
+        <span id="audioBtnText">🎵 Music Playing</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO BANNER & ONE DIRECTION VIDEO SHOWCASE
+       ======================================================================== -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-tag">🎉 Special Birthday Celebration Edition</div>
+      <h1 class="hero-title">
+        HAPPY Birthday, <em>C2</em>! 🎂
+      </h1>
+      <p class="hero-lead">
+        From childhood Kashmiri royalty and wrestling trophies to sunglasses inside the car, 
+        Hello Kitty mall takeovers, and the royal 2027 purple lehenga coronation. 
+        Connected in one seamless, unbreakable memory thread.
+      </p>
+
+      <!-- 1D Lyrics Marquee Ticker -->
+      <div class="lyrics-ticker-wrap">
+        <span class="lyrics-badge">Now Playing</span>
+        <span id="lyricsMarquee" class="lyrics-text">
+          "Written in these walls are the stories that I can't explain..."
+        </span>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         THE 1D RECREATION SPOTLIGHT (THEN VS NOW INTERACTIVE SLIDER)
+         ======================================================================== -->
+    <section class="recreation-spotlight" aria-labelledby="spotlightHeading">
+      <header class="spotlight-header text-center">
+        <span class="spotlight-badge">Story of My Life • Recreation</span>
+        <h2 id="spotlightHeading" class="spotlight-title">Then vs. Now: The Iconic Morph</h2>
+        <p style="color: var(--ink-soft); font-size: 0.95rem; margin-top: 4px;">
+          Drag or swipe the slider below to witness the seamless transition from childhood pose to final 2027 royalty!
+        </p>
+      </header>
+
+      <div id="comparisonContainer" class="comparison-container">
+        <!-- Before: Childhood Traditional Pose (old) -->
+        <div id="comparisonBefore" class="comparison-before">
+          <img src="spotlight_childhood.jpg" alt="Childhood Kashmiri Pose" />
+          <span class="comparison-label label-before">👶 The Origin (Old)</span>
+        </div>
+
+        <!-- After: 2027 Emerald Goddess / Coronation (2027) -->
+        <div class="comparison-after">
+          <img src="spotlight_adult.jpg" alt="2027 Emerald Goddess" />
+          <span class="comparison-label label-after">👑 2027 Final Form</span>
+        </div>
+
+        <!-- Interactive Divider Handle -->
+        <div id="comparisonHandle" class="comparison-handle">
+          <div class="comparison-slider-circle">⇄</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PINTEREST FILTER DASHBOARD & VIBE SELECTOR
+         ======================================================================== -->
+    <section class="filter-dashboard" id="gallerySection" aria-label="Memory Filter Dashboard">
+      <div class="filter-bar">
+        <div class="filter-row">
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-tab active" data-era="all" role="tab" type="button">
+              <span>All Memories</span>
+              <span class="tab-count">91</span>
+            </button>
+            <button class="filter-tab" data-era="old" role="tab" type="button">
+              <span>🧸 Chapter 1: Old Days</span>
+              <span class="tab-count">14</span>
+            </button>
+            <button class="filter-tab" data-era="mid" role="tab" type="button">
+              <span>🌅 Chapter 2: Mid Era</span>
+              <span class="tab-count">23</span>
+            </button>
+            <button class="filter-tab" data-era="mid2" role="tab" type="button">
+              <span>💅 Chapter 3: Peak Sass</span>
+              <span class="tab-count">24</span>
+            </button>
+            <button class="filter-tab" data-era="2027" role="tab" type="button">
+              <span>👑 Chapter 4: 2027 Beyond</span>
+              <span class="tab-count">21</span>
+            </button>
+            <button class="filter-tab" data-era="motion" role="tab" type="button">
+              <span>🎬 Live Motion</span>
+              <span class="tab-count">9</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mood & Expression Pills -->
+        <div class="filter-row">
+          <div class="vibe-pills">
+            <span class="vibe-label">Filter Vibe:</span>
+            <button class="vibe-pill active" data-vibe="all" type="button">All Vibes</button>
+            <button class="vibe-pill" data-vibe="royal" type="button">👑 Royal Glam</button>
+            <button class="vibe-pill" data-vibe="sassy" type="button">💅 Sassy Energy</button>
+            <button class="vibe-pill" data-vibe="goofy" type="button">🤪 Peak Goofy</button>
+            <button class="vibe-pill" data-vibe="cute" type="button">🥺 Sweet Moments</button>
+            <button class="vibe-pill" data-vibe="chaotic" type="button">💥 Pure Chaos</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PINTEREST MASONRY GRID (ALL 82+ PHOTOS & CLIPS)
+         ======================================================================== -->
+    <section class="pinterest-grid" id="pinterestGrid" aria-label="Photo Board Gallery">
+      <!-- Dynamically Rendered by app.js -->
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       LIGHTBOX MODAL (HIGH RESOLUTION INSPECTION)
+       ======================================================================== -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Expanded Photo Lightbox">
+    <div class="modal-container">
+      <button id="btnCloseModal" class="btn-close-modal" type="button" aria-label="Close Lightbox">✕</button>
+
+      <div class="modal-media-side" id="modalMediaWrap">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <div class="modal-info-side">
+        <div>
+          <div class="modal-header-meta">
+            <span id="modalEraBadge" class="modal-era-badge">Chapter 1</span>
+          </div>
+          <h2 id="modalTitle" class="modal-title">Photo Title</h2>
+          <p id="modalCaption" class="modal-caption">Caption</p>
+
+          <div class="modal-expression-box">
+            <div class="modal-exp-title">🔍 Facial Expression Readout</div>
+            <div id="modalExpText" class="modal-exp-text">"Expression note"</div>
+          </div>
+        </div>
+
+        <div class="modal-nav-controls">
+          <button id="btnModalPrev" class="btn-modal-nav" type="button">← Previous</button>
+          <button id="btnModalNext" class="btn-modal-nav" type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer>
+    <p>HAPPY Birthday, C2! Crafted with infinite love & unforgettable memories <span class="footer-heart">♥</span></p>
+    <p class="footer-hand">"Written in these walls are the stories that I can't explain…"</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">
+      All 91 childhood and modern memories preserved in high resolution.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="galleryData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
